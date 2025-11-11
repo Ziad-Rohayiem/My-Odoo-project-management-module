@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Project Form View -->
+    <record id="view_project_form" model="ir.ui.view">
+        <field name="name">project.management.form</field>
+        <field name="model">project.management</field>
+        <field name="arch" type="xml">
+            <form string="Project">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="e.g., Website Redesign"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="task_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" placeholder="Project description..."/>
+                        </page>
+                        <page string="Tasks">
+                            <field name="task_ids">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="user_id"/>
+                                    <field name="stage_id"/>
+                                    <field name="priority" widget="priority"/>
+                                    <field name="date_deadline"/>
+                                    <field name="is_done"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Project Tree View -->
+    <record id="view_project_tree" model="ir.ui.view">
+        <field name="name">project.management.tree</field>
+        <field name="model">project.management</field>
+        <field name="arch" type="xml">
+            <tree string="Projects">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="task_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Project Action -->
+    <record id="action_project" model="ir.actions.act_window">
+        <field name="name">Projects</field>
+        <field name="res_model">project.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first project
+            </p>
+        </field>
+    </record>
+</odoo>

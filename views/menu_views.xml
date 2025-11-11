@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_project_root"
+              name="Project Management"
+              sequence="10"/>
+
+    <!-- Projects Menu -->
+    <menuitem id="menu_project"
+              name="Projects"
+              parent="menu_project_root"
+              action="action_project"
+              sequence="10"/>
+
+    <!-- Tasks Menu -->
+    <menuitem id="menu_task"
+              name="Tasks"
+              parent="menu_project_root"
+              action="action_task"
+              sequence="20"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_project_config"
+              name="Configuration"
+              parent="menu_project_root"
+              sequence="100"/>
+
+    <!-- Stages Menu -->
+    <menuitem id="menu_stage"
+              name="Stages"
+              parent="menu_project_config"
+              action="action_stage"
+              sequence="10"/>
+</odoo>
